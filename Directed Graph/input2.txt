@@ -1,0 +1,18 @@
+gotovertex B
+addedgeto A 8
+addedgeto C 3
+addedgeto F 7
+gotovertex A
+addedgeto Z 5
+addedgeto B 10
+gotovertex Z
+addedgeto K 9
+addedgeto L 12
+gotovertex F
+addedgeto L 1
+addedgeto M 2
+gotovertex B
+indegree
+outdegree
+BFS
+DFS

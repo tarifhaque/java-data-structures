@@ -1,0 +1,39 @@
+addLeftmostChild 1
+addRightmostChild 2
+addLeftmostChild 3
+addRightmostChild 4
+gotoLeftmostChild
+addRightmostChild 5
+addLeftmostChild 6
+addRightmostChild 7
+addLeftmostChild 8
+gotoRightmostChild
+gotoLeftSibling
+gotoLeftSibling
+replaceLabel 9
+gotoParent
+gotoRightSibling
+gotoRightSibling
+addRightmostChild 10
+addLeftmostChild 11
+addRightmostChild 12
+addLeftmostChild 13
+gotoLeftmostChild
+gotoRightSibling
+gotoRightSibling
+replaceLabel 14
+gotoRoot
+replaceLabel 15
+size
+isRoot
+isLeaf
+gotoRightmostChild
+gotoLeftSibling
+gotoLeftmostChild
+gotoRightSibling
+levelOrder
+preOrder
+postOrder
+label
+isRoot
+isLeaf

@@ -1,0 +1,36 @@
+numEdges
+gotovertex B
+addedgeto A 8
+addedgeto C 3
+addedgeto F 5
+addedgeto P 8
+addedgeto K 34
+addedgefrom Z 2
+addedgefrom P 5
+inDegree
+outDegree
+inIncidentEdges
+outIncidentEdges
+inAdjacentVertices
+outAdjacentVertices
+followedge 3
+indegree
+addedgeto P 4
+addedgeto K 7 
+outdegree
+gotovertex P
+indegree
+followedgeinreverse 4
+outadjacentvertices
+inadjacentvertices
+hasedgeto P
+hasedgefrom B
+findedgefrom B
+findedgeto K
+removeedgeto K
+followedge 7
+gotovertex K
+inAdjacentVertices
+gotovertex B
+BFS
+DFS

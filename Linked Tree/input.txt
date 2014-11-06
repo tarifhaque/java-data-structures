@@ -1,0 +1,16 @@
+size
+label
+replaceLabel 3
+addLeftmostChild 4
+addRightmostChild 5
+isRoot
+isLeaf
+gotoRoot
+gotoParent
+gotoLeftmostChild
+gotoRightmostChild
+gotoLeftSibling
+gotoRightSibling
+preOrder
+postOrder
+levelOrder

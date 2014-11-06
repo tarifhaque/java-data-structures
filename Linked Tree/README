@@ -1,0 +1,32 @@
+Written by Tarif Haque
+on February 16 2013 for CS 360 - Data Structures and Algorithms
+
+This project implements a non-binary tree implemented using a linked structure.
+Each node contains an integer value and links to its parent, left most child, right most child, left sibling and right sibling.
+
+The test program (TestTree.java) instantiates a Tree and allows the input of operations to perform on the tree.
+The operations can be input by the user within the program or read from an input file. 
+The input instructions can be written in the data file "input.txt".
+
+The program will only accept the following instructions, written in the following format:
+
+size
+label
+replaceLabel 3
+addLeftmostChild 4
+addRightmostChild 5
+isRoot
+isLeaf
+gotoRoot
+gotoParent
+gotoLeftmostChild
+gotoRightmostChild
+gotoLeftSibling
+gotoRightSibling
+preOrder
+postOrder
+levelOrder
+
+Each of these instructions has an associated method in Tree.java. 
+See the comments in Tree.java for further information about these instructions and the methods that implement them.
+
