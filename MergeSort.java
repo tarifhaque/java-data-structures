@@ -22,18 +22,22 @@ public class MergeSort {
   }
   
   private static int[] mergesort(int[] array) {
-    if (array.length <= 1) return array;
-    int mid = (int) Math.ceil(array.length / 2.0);
+      // a list of zero or one elements is sorted
+      if (array.length <= 1) return array;
 
-    int[] left = Arrays.copyOfRange(array, 0, mid);
-    int[] right = Arrays.copyOfRange(array, mid + 1, array.length - 1);
+      // divide list into equal-sized sublists
+      int mid = array.length / 2;
+      int[] left = Arrays.copyOfRange(array, 0, mid);
+      int[] right = Arrays.copyOfRange(array, mid, array.length);
 
-    int[] sortedleft = mergesort(left);
-    int[] sortedright = mergesort(right);
+      int[] leftsorted = mergesort(left);
+      int[] rightsorted = mergesort(right);
 
-    return merge(sortedleft, sortedright) ;
+      // recursively sort left and right arrays
+      return merge(leftsorted, rightsorted); 
   }
-    
+  
+  /* Merge two sorted arrays. */
   private static int[] merge(int[] a, int[] b) {
     int[] merged = new int[a.length + b.length];
 
@@ -68,9 +72,7 @@ public class MergeSort {
   }
 
   public static void main(String[] args) {
-      int[] a = {0,1,3,7,9,10,10,12,13};
-      int[] b = {1,2,4,6,6,6,7,8};
-      int[] merged = merge(a, b);
-      printarray(merged);
+      int [] test = {10, 3, 25, 1, 90, 4, 23, 30, 12, 0, 2, 54}; 
+      printarray(mergesort(test));
   }
 }
