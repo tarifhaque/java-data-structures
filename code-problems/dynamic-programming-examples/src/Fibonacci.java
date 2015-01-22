@@ -42,9 +42,8 @@ public class Fibonacci {
         // compute the solution if it doesn't
         else {
             table[n] = table[n - 1] + table[n - 2];
+            return table[n];
         }
-
-        return table[n];
     }
 
 
