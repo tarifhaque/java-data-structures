@@ -17,6 +17,6 @@ public class Main {
 
         // Testing Rod Cutting
         int[] lengthPrices = {0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
-        System.out.print(RodCutting.recursivelyCutRod(lengthPrices, 10));
+        System.out.print(RodCutting.cutRod(lengthPrices, 10));
     }
 }

@@ -17,6 +17,7 @@
 public class RodCutting {
 
     /**************************************
+     * The (tree) recursive approach.
      * It is sad how inefficient this is...
      **************************************/
     public static int recursivelyCutRod(int[] lengthPrices, int rodLength) {
@@ -33,6 +34,38 @@ public class RodCutting {
         return max(solutions);
     }
 
+    /*********************************************************
+     * My twist on the bottom-up strategy....
+     * Such elegance.. such efficiency...
+     *
+     * revenues[i] for i = 1 ... rodLength stores the max
+     * revenue for a rod of length i
+     *********************************************************/
+    public static int cutRod(int[] lengthPrices, int rodLength) {
+
+        // assume a rodLength of 0 costs nothing
+        if (rodLength == 0) return 0;
+
+        int[] revenues = new int[rodLength + 1];
+
+        for (int n = 1; n < revenues.length; n++) {
+            int[] solutions = new int[(n / 2) + 1];
+            solutions[0] = lengthPrices[n];
+
+            for (int i = 1; i < solutions.length; i++) {
+                solutions[i] = revenues[i] + revenues[n - i];
+            }
+
+            revenues[n] = max(solutions);
+        }
+
+        return revenues[rodLength];
+    }
+
+    /**************************************************
+     * I'm getting too old for writing trivial methods
+     * that should be built in...
+     **************************************************/
     private static int max(int[] array) {
         int max = Integer.MIN_VALUE;
         for (int i = 0; i < array.length; i++) {
