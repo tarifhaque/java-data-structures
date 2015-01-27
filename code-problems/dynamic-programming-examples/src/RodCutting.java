@@ -8,7 +8,7 @@
  * and selling the pieces.
  *
  * A recursive and dynamic programming solution is
- * impemented.
+ * implemented.
  *
  * Last Revised: 25 Jan 2015
  * Tarif Haque
