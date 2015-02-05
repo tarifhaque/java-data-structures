@@ -260,7 +260,7 @@ public class Graph {
 
 	/*
 	 * Print the label of the edge from v to current vertex, if such edge
-	 * exists, and otherwise print “none”
+	 * exists, and otherwise print "none"
 	 */
 	public void findEdgeFrom(char v) {
 		for (int i = 0; i < currentVertex.inList.size(); i++) {
@@ -275,7 +275,7 @@ public class Graph {
 
 	/*
 	 * Print the label of the edge from current vertex to v, if such edge
-	 * exists, and otherwise print “none”
+	 * exists, and otherwise print "none"
 	 */
 	public void findEdgeTo(char v) {
 		for (int i = 0; i < currentVertex.outList.size(); i++) {
