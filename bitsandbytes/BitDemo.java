@@ -1,4 +1,4 @@
-class BitDemo {
+public class BitDemo {
 
     /* Test whether the nth bit is set in an integer. Let n start at 0. */
     public static boolean isSet(int test, int n) {
