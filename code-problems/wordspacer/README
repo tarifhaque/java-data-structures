@@ -1,0 +1,54 @@
+We write a program that breaks up a string with no
+spaces into a string with the appropriate spaces.
+
+Essentially, we are being asked to break up a string
+into its constituent words.
+
+For example:
+"hellohowareyou" -> return "hello how are you"
+
+This problem requires knowledge of valid words. Assume
+a list of valid words is provided in a file named 
+"words.txt" in the source directory.
+
+We also note that there is not a single right answer for a
+given input: 
+
+"hotdogforever" -> 
+may return "hotdog forever" or "hot dog forever" or "hot dog for ever"
+(assuming the words "hotdog" "hot" "dog" "for" "ever" are in our wordlist)
+
+Because we may parse the input string into its constituent words
+in potentially many ways, the procedure we write will produce a 
+"correct" answer, but not the "only" answer.
+
+1) Attempt One
+Go through the input sequence character by character.
+Maintain a String, currentWord, to which we append characters.
+If the currentWord is a valid word, add the word to the string
+we are building.
+
+We see here that we will need a method isValidWord(String str).
+This method will be implmented with a hash table find(key) operation
+which will take constant time, where the key is the word. (Thus,
+we must populate the hash table with the valid words prior
+to using the isValidWord method.)
+
+We can describe our approach as "greedy."
+
+But there is a problem with this approach. Consider the case of 
+"words inside words":
+
+Assume the words "cat" "catastrophe" and "strikes" are in the dictionary.
+
+"catastrophestrikes" -> returns "not a valid sequence"
+Because "cat" will be a valid word, and after we see it, we never see
+a valid word again.
+
+So, if no word is "inside another word" - specifically as a prefix -
+and the input string is composed exclusively of words in the 
+dictionary, then this solution will reasonably well. Excluding the time
+to populate the hash table, the time complexity would equal the time
+to go through each character, which is O(n).
+
+

@@ -9,6 +9,8 @@ public class BasicThread {
         };
         
         thread.start();
+
+        // main thread waits for child to complete
         thread.join();        
 
     }    
