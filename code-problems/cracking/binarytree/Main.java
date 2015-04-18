@@ -20,6 +20,8 @@ public class Main {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        tree.prettyPrint();
        
         /* Depth-first traversals. */
         tree.preorder();
@@ -33,6 +35,10 @@ public class Main {
         tree.printInorder();
         double x = tree.findMedian();
         System.out.println("Median: " + Double.toString(x));
+        
+        /* Print tree height */
+        int height = tree.getHeight();
+        System.out.println("Height: " + Integer.toString(height));
     }
 
 }

@@ -1,6 +1,6 @@
-/* * * * * * * * * * * * * * * * * * * * 
+/* * * * * * * * * * * * * * * * * * * 
  * BinaryTree.java
- * Last revised 3 Feb 2015 by Tarif Haque
+ * Last revised 10 April 2015 by Tarif Haque
  *
  * In this BinaryTree, all elements in the left subtree
  * of a Node are less than or equal to data in the 
@@ -11,9 +11,7 @@
  * http://cslibrary.stanford.edu/110/BinaryTrees.html#java
  * * * * * * * * * * * * * * * * * * * * */
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.ArrayList;
+import java.util.*;
 
 public class BinaryTree {
    
@@ -191,5 +189,94 @@ public class BinaryTree {
 
         // else, return average of middle two elements
         else return (elements.get(mid) + elements.get(mid - 1)) / 2.0;
+    }
+
+    public int getHeight() {
+        return getHeight(this.root); 
+    }
+
+    private int getHeight(Node root) {
+        if (root == null) return 0;
+        else { 
+            return 1 + Math.max(getHeight(root.left), getHeight(root.right));
+        }
+    }
+
+    public void prettyPrint() {
+        printNode(this.root); 
+    }
+
+    private void printNode(Node root) {
+        int maxLevel = getHeight(root);
+        printNodeInternal(Collections.singletonList(root), 1, maxLevel);
+    }
+
+    private void printNodeInternal(List<Node> nodes, int level, int maxLevel) {
+        if (nodes.isEmpty() || isAllElementsNull(nodes))
+            return;
+
+        int floor = maxLevel - level;
+        int endgeLines = (int) Math.pow(2, (Math.max(floor - 1, 0)));
+        int firstSpaces = (int) Math.pow(2, (floor)) - 1;
+        int betweenSpaces = (int) Math.pow(2, (floor + 1)) - 1;
+
+        printWhitespaces(firstSpaces);
+
+        List<Node> newNodes = new ArrayList<Node>();
+        for (Node node : nodes) {
+            if (node != null) {
+                System.out.print(node.data);
+                newNodes.add(node.left);
+                newNodes.add(node.right);
+            } else {
+                newNodes.add(null);
+                newNodes.add(null);
+                System.out.print(" ");
+            }
+
+            printWhitespaces(betweenSpaces);
+        }
+        System.out.println("");
+
+        for (int i = 1; i <= endgeLines; i++) {
+            for (int j = 0; j < nodes.size(); j++) {
+                printWhitespaces(firstSpaces - i);
+                if (nodes.get(j) == null) {
+                    printWhitespaces(endgeLines + endgeLines + i + 1);
+                    continue;
+                }
+
+                if (nodes.get(j).left != null)
+                    System.out.print("/");
+                else
+                    printWhitespaces(1);
+
+                printWhitespaces(i + i - 1);
+
+                if (nodes.get(j).right != null)
+                    System.out.print("\\");
+                else
+                    printWhitespaces(1);
+
+                printWhitespaces(endgeLines + endgeLines - i);
+            }
+
+            System.out.println("");
+        }
+
+        printNodeInternal(newNodes, level + 1, maxLevel);
+    }
+
+    private void printWhitespaces(int count) {
+        for (int i = 0; i < count; i++)
+            System.out.print(" ");
+    }
+
+    private boolean isAllElementsNull(List<Node> list) {
+        for (Node node : list) {
+            if (node != null)
+                return false;
+        }
+        return true;
     }
 }

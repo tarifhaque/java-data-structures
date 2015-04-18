@@ -1,3 +1,7 @@
+/* * * * * * * * * * * * * * * * * * 
+ * A LinkedList of integers
+ * * * * * */
+
 import java.util.*;
 
 public class LinkedList {
@@ -21,6 +25,9 @@ public class LinkedList {
         head = null;
     }
 
+    /* * * * * * * * * * * * * * * * * * * * * 
+     * Construct a linked list from an array.
+     * * * * * * * * * * * */
     public LinkedList(int[] array) {
         if (array.length == 0) { size = 0; head = null; }
         else {
@@ -64,7 +71,7 @@ public class LinkedList {
             else System.out.print(current.data + ", ");
             current = current.next;
         }
-        System.out.print("]\n");
+        System.out.printf("] Size %d \n", size);
     }
 
     /* * * * * * * * * * * * * * * * * * * * *
@@ -100,13 +107,34 @@ public class LinkedList {
      * Remove all nodes with the given data item.
      * * * * * * */
     public void deleteNode(int d) {
-        
+
+        Node current = head;
+        Node next = current.next;
+
+        // notice that we skip the first node
+        while (next != null) {
+            if (next.data == d) { // delete this node
+                current.next = next.next;
+                next = next.next;
+                size--;
+            } else { // otherwise, move past it
+                current = current.next;
+                next = next.next;
+            }
+        }
+
+        // delete first node if we need to 
+        if (head.data == d) {
+            head = head.next;
+            size--;
+        }
+       
     }
 
     public static void main(String[] args) {
-        int[] array = {10, 10, 10, 1, 1, 2, 23, 23, 10, 1};
+        int[] array = {10, 10, 10, 1, 1, 2, 23, 23, 10, 1, 25};
         LinkedList list = new LinkedList(array);
-        list.removeDuplicates();
+        list.deleteNode(10);
         list.print();
     }
 }
